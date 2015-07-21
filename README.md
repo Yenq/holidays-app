@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/footnoise/holidays-app/badges/gpa.svg)](https://codeclimate.com/github/footnoise/holidays-app)
+
 Holidays App
 ============
 Holidays App is a standalone app that allows users to list their places via a
@@ -42,7 +44,7 @@ Examples of usage
 
     Max guests: 2
     ^C
-    
+
     $ holidays continue ABC1DEF2
     Continuing with ABC1DEF2
 
