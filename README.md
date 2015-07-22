@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/footnoise/holidays-app/badges/gpa.svg)](https://codeclimate.com/github/footnoise/holidays-app)
+[![Test Coverage](https://codeclimate.com/github/footnoise/holidays-app/badges/coverage.svg)](https://codeclimate.com/github/footnoise/holidays-app/coverage)
 
 Holidays App
 ============
