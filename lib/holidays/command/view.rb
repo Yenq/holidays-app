@@ -5,7 +5,6 @@ class Holidays::Command::View < Holidays::Command::Base
 	end
 
 	def do(params = {})
-		#todo replace with correct parameters passing
 		id = params.first
 		record = Holidays::Model::Property.find(id)
 		view.assign(record: record)

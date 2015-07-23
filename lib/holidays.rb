@@ -16,8 +16,8 @@ require 'config'
 require 'command/base'
 require 'command/new'
 require 'command/list'
-require 'command/continue'
 require 'command/view'
+require 'command/continue'
 
 #views
 require 'views/base'

@@ -1,17 +1,18 @@
 class Holidays::Views::Static < Holidays::Views::Base
 	protected
 	#write
-	def w(line = '', values = {})
-		values.each_pair { |k, v| line.gsub!(":#{k.to_s}", v.to_s) }
+	def w(line = '')
 		@app.write_line(line)
 	end
 
-	def ui(str)
-		Holidays::Language::UI[str]
+	def ui(str, values = {})
+		result = Holidays::Language::UI[str]
+		values.each_pair { |k, v| result = result.gsub(":#{k.to_s}", v.to_s) }
+		result
 	end
 
-	def error(type)
-		Holidays::Language::ERRORS[type]
+	def ui_error(type)
+		ui 'ui.error.basic', message: (Holidays::Language::ERRORS[type] || Holidays::Language::ERRORS[:default])
 	end
 
 	def field(name, value)

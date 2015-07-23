@@ -7,7 +7,8 @@ class Holidays::Views::Interactive < Holidays::Views::Static
 		values  = Holidays::Language::ADDITIONAL_VALUES[field]
 		result = nil
 		interactive = true
-    while interactive
+    	
+    	while interactive
 			w "#{title}:"
 			values.each_with_index {|v, i| w("  [#{i}] - #{v}") } if values.is_a? Array
 
@@ -16,10 +17,11 @@ class Holidays::Views::Interactive < Holidays::Views::Static
 	        if reg_exp.nil? || result =~ reg_exp
 	        	interactive = false
 	       	else
-	       		w error(field) || error(:default)
+	       		w ui_error(field)
 	       		w
 	       	end
-    end
-    result
+    	end
+    	
+    	result
 	end
 end

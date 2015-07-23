@@ -29,6 +29,13 @@ describe "Holidays::Views::*" do
 			it { expect(subject).to eq "No offers found." }
 		end
 
+		context ".ui (w params)" do
+			subject { view.send(:ui, 'ui.list.collection.item', { id: "A", title: "B"}) }
+			it { expect(subject).to eq "A: B"}
+		end
+
+		
+
 		context ".fields" do
 			subject { view.send(:fields) }
 			it { expect(subject).to be_a Hash }
@@ -52,7 +59,7 @@ describe "Holidays::Views::*" do
 			it { expect(subject).to eq "Property Type: Apartment\n" }
 		end
 
-		context ".w (w/o params)" do
+		context ".w" do
 			subject do
 				view.send(:w, "test line")
 				cli.stdout.string
@@ -60,18 +67,17 @@ describe "Holidays::Views::*" do
 			it { expect(subject).to eq "test line\n"}
 		end
 
-		context ".w (w params)" do
+		context ".ui_error" do
 			subject do
-				view.send(:w, "replace :to1 with :to2", { to1: "A", to2: "B"})
-				cli.stdout.string
+				view.send(:ui_error, :guests)
 			end
 
-			it { expect(subject).to eq "replace A with B\n"}
+			it { expect(subject).to eq "Error: must be a number" }
 		end
 
-		context ".error" do
+		context ".ui_error (default message)" do
 			subject do
-				view.send(:error, :default)
+				view.send(:ui_error, :undefined_error111)
 			end
 
 			it { expect(subject).to eq "Error: please input correct value" }

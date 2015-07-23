@@ -3,9 +3,10 @@ class Holidays::Views::List < Holidays::Views::Static
 		if data_collection.empty?
 			w ui('ui.list.collection.message-empty')
 		else
-			w ui('ui.list.collection.message'), number: data_collection.count, s: (data_collection.count > 1) ? 's' : ''
+			w ui('ui.list.collection.message', number: data_collection.count, s: (data_collection.count > 1) ? 's' : '')
+			
 			data_collection.each do |record|
-				w ui('ui.list.collection.item'), record.attributes
+				w ui('ui.list.collection.item', record.attributes)
 			end
 		end
 	end

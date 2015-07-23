@@ -1,7 +1,7 @@
 class Holidays::Views::Continue < Holidays::Views::Interactive
 
 	def draw
-		w ui('ui.continue.message-begin'), id: data_record.id
+		w ui('ui.continue.message-begin', id: data_record.id)
 
 		fields.each_pair do |name, title|
 			if data_record.send(name).nil?
@@ -13,6 +13,6 @@ class Holidays::Views::Continue < Holidays::Views::Interactive
 		end
 
 		data_record.update_attributes(is_draft: false)
-    w ui('ui.continue.message-end'), id: data_record.id
+    	w ui('ui.continue.message-end', id: data_record.id)
 	end
 end
